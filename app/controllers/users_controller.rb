@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :find_user, only: [:edit, :update, :show, :destroy]
+  before_action :find_user, only: [:edit, :update, :destroy]
 
   def new
     @user = User.new
@@ -11,6 +11,7 @@ class UsersController < ApplicationController
       sign_in(@user)
       redirect_to(root_path, flash: { success: "User Created!"})
     else
+      flash[:alert] = "Create failed. Try again."
       render :new
     end
   end
@@ -22,11 +23,13 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to root_path, flash: { success: "Information Renewed..." }
     else
+      flash[:alert] = "Update failed. Try again."
       render :edit
     end
   end
 
   def destroy
+    redirect_to root_path
   end
 
     private
