@@ -15,9 +15,10 @@ Rails.application.routes.draw do
   #   resources :products
 
   # Users
-  resources :users, except: [:index, :new]
+  resources :users, except: [:new]
   get '/signup' => 'users#new'
 
+  
   # Sessions
   get '/login' => 'sessions#new', as: :login
   delete '/logout' => "sessions#destroy", as: :logout
