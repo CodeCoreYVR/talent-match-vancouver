@@ -1,0 +1,26 @@
+<div class="container">
+
+  <h4 class="center-align">User Login</h4>
+
+  <div class="row">
+    <%= form_tag sessions_path, {:class => 'col s12 l6 offset-l3'} do %>
+    <div class="row">
+      <div class="input-field col s6">
+        <%= label_tag :email%>
+        <%= email_field_tag :email %>
+      </div>
+      <div class="input-field col s6">
+        <%= label_tag :password %>
+        <%= password_field_tag :password %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col s12 center-align">
+      <%= button_tag( :class => "btn waves-effect waves-light" ) do %>
+        Login <i class='material-icons right'>send</i>
+      <% end %>
+    </div>
+  </div>
+    <% end %> <!-- End form -->
+</div>
