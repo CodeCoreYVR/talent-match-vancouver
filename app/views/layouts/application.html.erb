@@ -10,8 +10,8 @@
   <!--Import Google Icon Font-->
   <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">  
-  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+
 
   <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -21,9 +21,10 @@
 
 <% if user_signed_in? %>
   <%# user name %>
+  <%= current_user.full_name %>  |
   <%= link_to "Log Out", logout_path, method: :delete %>
 <% else %>
-  <%= link_to "Create Account", signup_path%>
+  <%= link_to "Create Account", signup_path%>  |
   <%= link_to "Log In", login_path%>
 <% end %>
 
