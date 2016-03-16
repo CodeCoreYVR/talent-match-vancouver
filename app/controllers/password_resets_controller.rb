@@ -16,18 +16,15 @@ class PasswordResetsController < ApplicationController
   end
 
   def edit
-    @user = User.friendly.find_by_password_reset_token params[:id]
-    if @user
-    else
-      render file: 'public/404.html', status: :not_found
-    end
+    @user = User.find_by_password_reset_token params[:id]
+    render file: 'public/404.html', status: :not_found unless @user
   end
 
   def update
     @user = User.find_by_password_reset_token params[:id]
     if @user && @user.update_attributes(user_params)
       @user.update_attribute(:password_reset_token, nil)
-      session[:user_id] = @user.id
+      sign_in(@user)
       redirect_to root_path, notice: "Password updated."
     else
       flash[:alert] = "Password reset token not found."
