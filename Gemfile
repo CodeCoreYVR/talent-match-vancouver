@@ -54,6 +54,8 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'guard-rspec', require: false
   gem 'faker'
+  gem "nyan-cat-formatter"
+  gem 'capybara'
 end
 
 group :development do
