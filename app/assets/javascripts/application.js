@@ -14,8 +14,3 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-$(document).ready(function(){
-  $('body').on('click', 'button.close', function(){
-    $(this).parent().slideUp(500);
-  });
-});
