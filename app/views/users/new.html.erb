@@ -1,0 +1,56 @@
+
+<div class="container">
+
+  <div>
+    <%= @user.errors.full_messages.join(", ") %>
+  </div>
+
+  <h4 class="center-align">User Signup</h4>
+
+  <div class="row">
+  <%= form_for @user, html: {class: "col s12"} do |f| %>
+    <div class="row">
+      <div class="input-field col s6">
+        <%= f.label :first_name %>
+        <%= f.text_field :first_name, class: "validate" %>
+      </div>
+      <div class="input-field col s6">
+        <%= f.label :last_name %>
+        <%= f.text_field :last_name, class: "validate" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <%= f.label :email, data: {error: 'invalid email', success: "valid"} %>
+        <%= f.email_field :email, class: "validate" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <%= f.label :password %>
+        <%= f.password_field :password, class: "validate" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, class: "validate" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s12">
+        <%= button_tag( :class => "btn waves-effect waves-light" ) do %>
+          Submit <i class='material-icons right'>send</i>
+        <% end %>
+      </div>
+    </div>
+  <% end %> <!-- End form -->
+  </div>
+</div>
+
+
+
+
+
+
+
